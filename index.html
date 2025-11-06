@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOSUKU | Profile</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffffff, #d6c8ff);
+      font-family: "Segoe UI", sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 2rem 3rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    canvas {
+      width: 200px;
+      height: 200px;
+    }
+
+    .text-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: #5a3fbf;
+    }
+
+    p {
+      font-size: 1rem;
+      margin: 0.5rem 0 1.5rem 0;
+      color: #555;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 1rem;
+      text-decoration: none;
+      background: #5a3fbf;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .links a:hover {
+      background: #7d5fff;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        flex-direction: column;
+      }
+      canvas {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <canvas id="skinCanvas"></canvas>
+    <div class="text-section">
+      <h1>SOSUKU</h1>
+      <p>マイクラとコードが好きな人です。</p>
+      <div class="links">
+        <a href="https://x.com/SOSUKU_325" target="_blank">X</a>
+        <a href="https://github.com/sosuku325" target="_blank">GitHub</a>
+        <a href="https://www.youtube.com/@%E3%82%BD%E3%82%B9%E3%82%AF" target="_blank">YouTube</a>
+        <a href="https://qiita.com/sosuku325" target="_blank">Qiita</a>
+        <a href="https://sosuku.hatenablog.com/" target="_blank">Blog</a>
+        <a href="https://discord.gg/H7JFGW8CjF" target="_blank">Discord</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skinview3d@3.0.0-alpha.1/bundles/skinview3d.bundle.js"></script>
+  <script>
+    const canvas = document.getElementById("skinCanvas");
+    const viewer = new skinview3d.SkinViewer({
+      canvas,
+      width: 200,
+      height: 200,
+      skin: "2025_11_06_d4e1059e665970704344d4b8308315c39bb05e94.png",
+    });
+
+    viewer.zoom = 0.9;
+    viewer.autoRotate = true;
+    viewer.autoRotateSpeed = 0.8;
+
+    const control = new skinview3d.createOrbitControls(viewer);
+    control.enableZoom = false;
+  </script>
+</body>
+</html>
